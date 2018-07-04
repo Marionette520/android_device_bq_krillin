@@ -133,7 +133,6 @@ PRODUCT_PACKAGES += \
 
 # Led package
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
     lights.mt6582
 
 # Charging
@@ -164,6 +163,14 @@ PRODUCT_PACKAGES += \
 # Shims for krillin
 PRODUCT_PACKAGES += \
     libkrillin
+
+# Sensors HAL
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service
+    
 
 # EGL Necessary package
 PRODUCT_PACKAGES += \
