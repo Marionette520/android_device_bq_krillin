@@ -1,0 +1,4 @@
+type memsicd3416x, domain;
+type memsicd3416x_exec, exec_type, file_type;
+
+init_daemon_domain(memsicd3416x)
