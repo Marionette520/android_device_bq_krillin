@@ -945,3 +945,14 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
 #
 # Connectivity related services (End)
 #
+
+#
+# A fugly workaround for no mobile data without restarting modem manualy.
+#
+service modem_restart /system/bin/radiooptions 0 0 0
+    user root
+    disabled
+    oneshot
+
+on property:sys.boot_completed=1
+    start modem_restart

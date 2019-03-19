@@ -18,6 +18,7 @@
 /system/bin/netdiag u:object_r:netdiag_exec:s0
 /system/bin/meta_tst u:object_r:meta_tst_exec:s0
 /system/bin/memsicd3416x u:object_r:memsicd3416x_exec:s0
+/system/bin/radiooptions u:object_r:radiooptions_exec:s0
 /dev/socket/netdiag(/.*)? u:object_r:netdiag_socket:s0
 
 /dev/wmtWifi          u:object_r:wmtWifi_device:s0
