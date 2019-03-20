@@ -15,10 +15,10 @@ Change-Id: I2d5dc09558034f5253e8c9330e9980225a21201c
  1 file changed, 15 insertions(+), 14 deletions(-)
 
 diff --git a/services/audioflinger/Threads.cpp b/services/audioflinger/Threads.cpp
-index 08ccc8e..e3599a3 100644
+index 5c3726327..baf483370 100644
 --- a/services/audioflinger/Threads.cpp
 +++ b/services/audioflinger/Threads.cpp
-@@ -6448,20 +6448,21 @@ reacquire_wakelock:
+@@ -6466,20 +6466,21 @@ reacquire_wakelock:
          mTimestamp.mTimeNs[ExtendedTimestamp::LOCATION_SERVER] = systemTime();
  
          // Update server timestamp with kernel stats
@@ -54,5 +54,3 @@ index 08ccc8e..e3599a3 100644
          // Use this to track timestamp information
          // ALOGD("%s", mTimestamp.toString().c_str());
  
--- 
-2.7.4

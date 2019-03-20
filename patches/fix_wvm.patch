@@ -9,10 +9,10 @@ Change-Id: Ic9bb323439186c2907e31bc2f30486ae8fa7fda6
  1 file changed, 21 insertions(+)
 
 diff --git a/media/libstagefright/MediaSource.cpp b/media/libstagefright/MediaSource.cpp
-index a17757a..bc0206f 100644
+index a17757a8e..b888427e0 100644
 --- a/media/libstagefright/MediaSource.cpp
 +++ b/media/libstagefright/MediaSource.cpp
-@@ -23,3 +23,24 @@ MediaSource::MediaSource() {}
+@@ -23,3 +23,22 @@ MediaSource::MediaSource() {}
  MediaSource::~MediaSource() {}
  
  }  // namespace android
@@ -35,5 +35,3 @@ index a17757a..bc0206f 100644
 +}
 +
 +}
-+
-+
