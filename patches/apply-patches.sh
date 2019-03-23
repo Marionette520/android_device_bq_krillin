@@ -4,9 +4,9 @@ cd system/core
 git apply -v ../../device/bq/krillin/patches/surfaceflinger.patch
 git apply -v ../../device/bq/krillin/patches/ril-daemon-mtk-re.patch
 cd ../..
-cd bionic
-git apply -v ../device/bq/krillin/patches/libc.patch
-cd ..
+#cd bionic
+#git apply -v ../device/bq/krillin/patches/libc.patch
+#cd ..
 cd frameworks/av
 git apply -v ../../device/bq/krillin/patches/fix_wvm.patch
 git apply -v ../../device/bq/krillin/patches/capture.patch
