@@ -19,10 +19,6 @@ on init
     chown root system /proc/lk_env
     chmod 0660 /proc/lk_env
 
-    # Double Tap permission
-    chown system system /sys/android_touch/doubletap2wake
-    chmod 0666 /sys/android_touch/doubletap2wake
-
 # mount different fs start
 
 on fs
@@ -171,11 +167,6 @@ on post-fs-data
     chmod 0660 /dev/als_ps
     chmod 0660 /dev/gyroscope
     chmod 0660 /dev/aal_als
-    chmod 0660 /sys/devices/platform/msensor/driver/cpsopmode
-    chmod 0660 /sys/devices/platform/msensor/driver/cpsreptxy
-    chmod 0660 /sys/devices/platform/msensor/driver/cpsreptz
-    chmod 0660 /sys/devices/platform/gsensor/driver/cpsopmode
-    chmod 0660 /sys/devices/platform/gsensor/driver/cpsrange
 
     chown system system /dev/hwmsensor
     chown system system /dev/msensor
@@ -184,92 +175,9 @@ on post-fs-data
     chown system system /dev/gyroscope
     chown system system /dev/aal_als
 
-    # Accelerometer Sensor
-    chmod 0660 /sys/class/misc/m_acc_misc/accenablenodata
-    chmod 0660 /sys/class/misc/m_acc_misc/accactive
-    chmod 0660 /sys/class/misc/m_acc_misc/accdelay
-    chmod 0660 /sys/class/misc/m_acc_misc/accbatch
-    chmod 0660 /sys/class/misc/m_acc_misc/accflush
-    chown system system /sys/class/misc/m_acc_misc/accenablenodata
-    chown system system /sys/class/misc/m_acc_misc/accactive
-    chown system system /sys/class/misc/m_acc_misc/accdelay
-    chown system system /sys/class/misc/m_acc_misc/accbatch
-    chown system system /sys/class/misc/m_acc_misc/accflush
-
-    # Magnetometer (compass) sensor
-    chmod 0777 /sys/class/misc/m_mag_misc/magactive
-    chmod 0777 /sys/class/misc/m_mag_misc/magdelay
-    chmod 0777 /sys/class/misc/m_mag_misc/magbatch
-    chmod 0777 /sys/class/misc/m_mag_misc/magflush
-    chmod 0777 /sys/class/misc/m_mag_misc/magoactive
-    chmod 0777 /sys/class/misc/m_mag_misc/magodelay
-    chmod 0777 /sys/class/misc/m_mag_misc/magobatch
-    chmod 0777 /sys/class/misc/m_mag_misc/magoflush
-    chown system system /sys/class/misc/m_mag_misc/magactive
-    chown system system /sys/class/misc/m_mag_misc/magdelay
-    chown system system /sys/class/misc/m_mag_misc/magbatch
-    chown system system /sys/class/misc/m_mag_misc/magflush
-    chown system system /sys/class/misc/m_mag_misc/magoactive
-    chown system system /sys/class/misc/m_mag_misc/magodelay
-    chown system system /sys/class/misc/m_mag_misc/magobatch
-    chown system system /sys/class/misc/m_mag_misc/magoflush
-    chmod 0777 /sys/class/misc/m_batch_misc/batchactive
-    chmod 0777 /sys/class/misc/m_batch_misc/batchdelay
-    chmod 0777 /sys/class/misc/m_batch_misc/batchbatch
-    chmod 0777 /sys/class/misc/m_batch_misc/batchflush
-    chown system system /sys/class/misc/m_batch_misc/batchactive
-    chown system system /sys/class/misc/m_batch_misc/batchdelay
-    chown system system /sys/class/misc/m_batch_misc/batchbatch
-    chown system system /sys/class/misc/m_batch_misc/batchflush
-
-    # Gyroscope 
-    chmod 0660 /sys/class/misc/m_gyro_misc/gyroenablenodata
-    chmod 0660 /sys/class/misc/m_gyro_misc/gyroactive
-    chmod 0660 /sys/class/misc/m_gyro_misc/gyrodelay
-    chmod 0660 /sys/class/misc/m_gyro_misc/gyrobatch
-    chmod 0660 /sys/class/misc/m_gyro_misc/gyroflush
-    chown system system /sys/class/misc/m_gyro_misc/gyroenablenodata
-    chown system system /sys/class/misc/m_gyro_misc/gyroactive
-    chown system system /sys/class/misc/m_gyro_misc/gyrodelay
-    chown system system /sys/class/misc/m_gyro_misc/gyrobatch
-    chown system system /sys/class/misc/m_gyro_misc/gyroflush
-
-    # ALSPS
-    chmod 0660 /sys/class/misc/m_alsps_misc/alsactive
-    chmod 0660 /sys/class/misc/m_alsps_misc/alsdelay
-    chmod 0660 /sys/class/misc/m_alsps_misc/alsbatch
-    chmod 0660 /sys/class/misc/m_alsps_misc/alsflush
-    chmod 0660 /sys/class/misc/m_alsps_misc/psactive
-    chmod 0660 /sys/class/misc/m_alsps_misc/psdelay
-    chmod 0660 /sys/class/misc/m_alsps_misc/psbatch
-    chmod 0660 /sys/class/misc/m_alsps_misc/psflush
-    chown system system /sys/class/misc/m_alsps_misc/alsactive
-    chown system system /sys/class/misc/m_alsps_misc/alsdelay
-    chown system system /sys/class/misc/m_alsps_misc/alsbatch
-    chown system system /sys/class/misc/m_alsps_misc/alsflush
-    chown system system /sys/class/misc/m_alsps_misc/psactive
-    chown system system /sys/class/misc/m_alsps_misc/psdelay
-    chown system system /sys/class/misc/m_alsps_misc/psbatch
-    chown system system /sys/class/misc/m_alsps_misc/psflush
-
-    # Barometer sensor (NOT USED) 
-    chmod 0660 /sys/class/misc/m_baro_misc/baroenablenodata
-    chmod 0660 /sys/class/misc/m_baro_misc/baroactive
-    chmod 0660 /sys/class/misc/m_baro_misc/barodelay
-    chmod 0660 /sys/class/misc/m_baro_misc/barobatch
-    chmod 0660 /sys/class/misc/m_baro_misc/baroflush
-    chown system system /sys/class/misc/m_baro_misc/baroenablenodata
-    chown system system /sys/class/misc/m_baro_misc/baroactive
-    chown system system /sys/class/misc/m_baro_misc/barodelay
-    chown system system /sys/class/misc/m_baro_misc/barobatch
-    chown system system /sys/class/misc/m_baro_misc/baroflush
-
     # msensor
     chmod 0777 /sys/bus/platform/drivers/msensor/daemon
     chown system system /sys/bus/platform/drivers/msensor/daemon
-    chown system /sys/devices/platform/msensor/driver/cpsopmode
-    chown system /sys/devices/platform/msensor/driver/cpsreptxy
-    chown system /sys/devices/platform/msensor/driver/cpsreptz
 
     #Accdet
     chown root radio /sys/devices/platform/Accdet_Driver/driver/accdet_call_state
@@ -286,11 +194,6 @@ on post-fs-data
 
     mkdir /data/amit/ 0770 system system
     mkdir /data/misc/sensors 0664 system system
-    mkdir /data/misc/akmd 0770 system system
-    mkdir /data/acdapi/ 0770 system system
-    chmod 0660 /data/misc/acdapi/calib.dat
-    chmod 0660 /data/misc/acdapi/param.dat
-    chmod 0660 /data/misc/acdapi/sensors.dat
     chown system /sys/class/input/input5/enable
     chown system /sys/class/input/input5/delay
     chown system /sys/class/input/input5/wake
@@ -298,10 +201,6 @@ on post-fs-data
     chown system /sys/class/input/input3/wake
     chown system /sys/class/input/input4/offsets
     chown system /sys/class/input/input4/dynamic_matrix
-
-    # SPM SODI Enable
-    chown media /proc/mcdi/sodi_en
-    chmod 0664 /proc/mcdi/sodi_en
 
     #EM eint
     chown root diag /sys/bus/platform/drivers/eint/current_eint
@@ -329,9 +228,6 @@ on post-fs-data
     chmod 0664 /proc/cpu_ss/cpu_ss_period
     chmod 0664 /proc/cpu_ss/cpu_ss_period_mode
 
-    #EM eint
-    chown root diag /sys/bus/platform/drivers/eint/current_eint
-
     # for ppp options file
     mkdir /data/misc/ppp 0770 bluetooth net_bt
 
@@ -352,18 +248,9 @@ on post-fs-data
     #Use uinput's default permission
     chown system net_bt_admin /dev/uinput
 
-    #TV-out
-    chmod 0664 /dev/TV-out
-
-    #HDMI
-    chmod 0664 /dev/hdmitx
-
     # JPEG
     chmod 0440 /dev/mtk_jpeg
     chown system camera /dev/mtk_jpeg
-
-    #ALMK
-    chmod 0440 /dev/mtk_almk
 
     # DISP
     chmod 0440 /dev/mtk_disp
@@ -385,21 +272,9 @@ on post-fs-data
     chown system camera /dev/kd_camera_hw_bus2
     chown system camera /dev/FM50AF
 
-    #MATV
-    chmod 0660 /dev/MATV
-    chown system media /dev/MATV
-
     # otg_test
     chown root radio /dev/mt_otg_test
     chmod 0660 /dev/mt_otg_test
-
-    # MDP
-    chmod 0660 /dev/mt-mdp
-    chown system media /dev/mt-mdp
-
-    # G2D
-    chmod 0660 /dev/mtkg2d
-    chown system media /dev/mtkg2d
 
     chmod 0660 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
     chown media media /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
@@ -408,21 +283,11 @@ on post-fs-data
     chmod 0666 /dev/MTK_SMI
     chown system media /dev/MTK_SMI
 
-    #mtk_sched
-    chmod 0660 /dev/mtk_sched
-    chown system media /dev/mtk_sched
-
     chmod 666 /dev/mali
     chown system graphics /dev/mali
 
-
-
     #sbchk
     mkdir /data/sec 0750 system system
-
-
-    exec 0666 /system/xbin/autosanity
-
 
 #
 # Connectivity related device nodes & configuration (begin)
@@ -561,14 +426,6 @@ on boot
     chown shell system /proc/driver/wmt_dbg
     chown shell system /proc/driver/wmt_aee
 
-#Define device for ATCID
-    chmod 660 /dev/ttyGS0
-    chown system /dev/ttyGS0
-    chmod 660 /dev/ttyGS1
-    chown system /dev/ttyGS1
-
-    class_start default
-
 on property:ro.build.type=userdebug
     write /proc/sys/fs/suid_dumpable 2
     write /proc/sys/kernel/core_pattern "|/system/bin/aee_core_forwarder /data/core/ %p %s UID=%u GID=%g"
@@ -599,9 +456,6 @@ service start_modem /system/bin/md_ctrl 1
     disabled
     oneshot
 
-service mobile_log_d /system/bin/mobile_log_d
-    class main
-
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B \
         -o /data/data/com.android.shell/files/bugreports/bugreport
@@ -619,36 +473,6 @@ service nvram_daemon /system/bin/nvram_daemon
     user root
     group system bluetooth
     oneshot
-
-service atci_service /system/bin/atci_service
-    socket atci-service stream 660 radio system
-    socket atci-serv-fw stream 660 radio system
-    user root
-    disabled
-    group radio system
-
-service atcid-daemon-u /system/bin/atcid
-    user system
-    group radio system media
-    disabled
-    oneshot
-
-service atcid-daemon-e /system/bin/atcid
-    user root
-    group radio system
-    disabled
-    oneshot
-
-on early_property:ro.build.type=eng
-start atci_service
-start atcid-daemon-e
-service audio-daemon /system/bin/audiocmdservice_atci
-    class main
-    socket atci-audio stream 660 root system
-    user root
-    disabled
-    oneshot
-
 
 service insmod insmod
     disabled
@@ -688,58 +512,6 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
-
-service dhcpcd_bt-pan /system/bin/dhcpcd -A -BK -dd
-    class main
-    user dhcp
-    group net_admin net_raw
-    disabled
-    oneshot
-
-
-
-service dhcpcd_wlan0 /system/bin/dhcpcd -A -BK -dd
-    class main
-    user dhcp
-    group net_admin net_raw
-    disabled
-    oneshot
-
-service dhcpcd_p2p /system/bin/dhcpcd -A -BK -dd
-    class main
-    user dhcp
-    group net_admin net_raw
-    disabled
-    oneshot
-
-service iprenew_wlan0 /system/bin/dhcpcd -n
-    class main
-    user dhcp
-    group net_admin net_raw
-    disabled
-    oneshot
-
-service iprenew_p2p /system/bin/dhcpcd -n
-    class main
-    user dhcp
-    group net_admin net_raw
-    disabled
-    oneshot
-
-service dhcp6cDNS_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cDNS.conf" -Df wlan0
-    disabled
-    oneshot
-
-service dhcp6c_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6c.conf" -Df wlan0
-    disabled
-    oneshot
-
-on property:service.dhcp6c_wlan0.enable=0
-    stop dhcp6c_wlan0
-
-on property:service.dhcp6c_wlan0.enable=1
-    start dhcp6c_wlan0
-    
 service bluetoothd /system/bin/bluetoothd -n
     class main
     socket bluetooth stream 660 bluetooth bluetooth
@@ -790,112 +562,7 @@ service msensord /system/bin/msensord
     class main
     oneshot
 
-service st480d /system/bin/st480d
-     disabled
-	 user system
-    group system
-    class main
-
-service s62xd /system/bin/s62xd
-    disabled
-    user compass
-    group system
-    class main
-service ami304d /system/bin/ami304d
-    user system
-    group system
-    disabled
-    class main
-
-service memsicd /system/bin/memsicd
-    disabled
-    user system
-    group system
-    class main
-
 service memsicd3416x /system/bin/memsicd3416x
-    disabled
-    user system
-    group system
-    class main
-
-service akmd8975 /system/bin/akmd8975
-    disabled
-    user system
-    group system
-    class main
-
-service akmd8963 /system/bin/akmd8963
-    disabled
-    user system
-    group system
-    class main
-
-service akmd09911 /system/bin/akmd09911
-    disabled
-    user system
-    group system
-    class main
-    
-service st480 /system/bin/st480
-    disabled
-    user system
-    group system input
-    class main
-    
-service bmm050d /system/bin/bmm050d
-    disabled
-    user system
-    group system
-    class main
-
-service memsicd35240 /system/bin/memsicd35240
-    disabled
-    user system
-    group system
-    class main
-
-service st480d /system/bin/st480d
-    disabled
-    user system
-    group system
-    class main
-
-service bmm056d /system/bin/bmm056d
-    disabled
-    user system
-    group system
-    class main
-service mc6420d /system/bin/mc6420d
-    disabled
-    user system
-    group system
-    class main
-
-service qmc5983d /system/bin/qmc5983d
-    disabled
-    user system
-    group system
-    class main
-
-service orientationd /system/bin/orientationd
-    disabled
-    user system
-    group system input
-    class main
-service AcdApiDaemon /system/bin/AcdApiDaemon
-    disabled
-    user system
-    group system
-    class main
-
-service geomagneticd /system/bin/geomagneticd
-    disabled
-    user system
-    group system input
-    class main
-
-service mc64xxd /system/bin/mc64xxd
     disabled
     user system
     group system

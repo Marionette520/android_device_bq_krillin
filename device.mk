@@ -12,19 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit necessary things
+# Inherit lineage os necessary things
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/common/gps/gps_us_supl.mk) 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-# Inherit the proprietary setup
+# Call krillin vendor
 $(call inherit-product, vendor/bq/krillin/krillin-vendor.mk)
 
 # Local Path
 LOCAL_PATH := device/bq/krillin
 
-# PERMISSIONS
+# Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
@@ -47,21 +47,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
-
-
-# CAMERA PERMISSIONS
-PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-	frameworks/native/data/etc/android.hardware.camera.manual_sensor.xml:system/etc/permissions/android.hardware.camera.manual_sensor.xml
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.camera.manual_sensor.xml:system/etc/permissions/android.hardware.camera.manual_sensor.xml
 	
-# AGPS
+# Necessary Configs
 PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
-
-# AUDIO	
-PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml \
     $(LOCAL_PATH)/rootdir/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
@@ -69,27 +62,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/system/etc/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     $(LOCAL_PATH)/rootdir/system/etc/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     $(LOCAL_PATH)/rootdir/system/etc/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
-    $(LOCAL_PATH)/rootdir/system/etc/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
-
-# THERMAL
-PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/rootdir/system/etc/thermal/thermal.conf:system/etc/.tp/thermal.conf \
-     $(LOCAL_PATH)/rootdir/system/etc/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
-     $(LOCAL_PATH)/rootdir/system/etc/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf
-
-# KEYLAYOUT
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/system/usr/keylayout/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
-
-# HOSTAPD
-PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/system/etc/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
+    $(LOCAL_PATH)/rootdir/system/etc/thermal/thermal.conf:system/etc/.tp/thermal.conf \
+    $(LOCAL_PATH)/rootdir/system/etc/thermal/.ht120.mtc:system/etc/.tp/.ht120.mtc \
+    $(LOCAL_PATH)/rootdir/system/etc/thermal/thermal.off.conf:system/etc/.tp/thermal.off.conf \
+    $(LOCAL_PATH)/rootdir/system/usr/keylayout/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl \
     $(LOCAL_PATH)/rootdir/system/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
     $(LOCAL_PATH)/rootdir/system/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    $(LOCAL_PATH)/rootdir/system/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
-	
+    $(LOCAL_PATH)/rootdir/system/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
+    $(LOCAL_PATH)/rootdir/system/etc/fmr/mt6627_fm_cust.cfg:system/etc/fmr/mt6627_fm_cust.cfg
+
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# RAMDISK
+# Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.sprout_common.rc:root/init.sprout_common.rc \
     $(LOCAL_PATH)/rootdir/root/sbin/multi_init:root/sbin/multi_init \
@@ -101,16 +86,17 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/root/init.sprout.rc:root/init.sprout.rc \
     $(LOCAL_PATH)/rootdir/root/fstab.sprout:root/fstab.sprout
     
-# TWRP RECOVERY
+# Recovery related (TWRP-Specific)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/etc/twrp.fstab:recovery/root/etc/twrp.fstab \
-    $(LOCAL_PATH)/recovery/etc/sbin/fsck.f2fs:root/sbin/fsck.f2fs \
-    $(LOCAL_PATH)/recovery/etc/sbin/mkfs.f2fs:root/sbin/mkfs.f2fs
+    $(LOCAL_PATH)/recovery/etc/twrp.fstab:recovery/root/etc/twrp.fstab
 
-# OVERLAY
+# Superuser
+WITH_SU := true
+
+# Overlay
 DEVICE_PACKAGE_OVERLAYS := device/bq/krillin/overlay
 
-# AUDIO
+# Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
@@ -118,8 +104,8 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     tinymix
 
-# WIFI
- PRODUCT_PACKAGES += \
+# Mediatek Wlan Packages
+PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
@@ -128,78 +114,71 @@ PRODUCT_PACKAGES += \
 	
 PRODUCT_PACKAGES += \
     librs_jni \
+    libion
+
+# USB
+PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 # Led package
 PRODUCT_PACKAGES += \
     lights.mt6582
 
-# CHARGING
+# Charging
 PRODUCT_PACKAGES += \
-    charger \
     charger_res_images \
     libnl_2 \
     libtinyxml
 
-# PARTITIONS
+# Filesystem Managment Tools
 PRODUCT_PACKAGES += \
     setup_fs \
     e2fsck \
     fsck.f2fs \
     mkfs.f2fs \
-    make_ext4fs
-
-PRODUCT_PACKAGES += \
+    make_ext4fs \
     mount.exfat \
     fsck.exfat \
-    mkfs.exfat
-
-PRODUCT_PACKAGES += \
+    mkfs.exfat \
     fsck.ntfs \
     mkfs.ntfs \
     mount.ntfs
     
-# GPS PACKAGE
+# GPS package
 PRODUCT_PACKAGES += \
     gps.mt6582
 
-# KRILLIN SHIMS
+# Shims for krillin
 PRODUCT_PACKAGES += \
     libkrillin
 
-# Telecomm
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/system/etc/ecc_list.xml:system/etc/ecc_list.xml \
-    $(LOCAL_PATH)/rootdir/system/etc/apns-conf.xml:system/etc/apns-conf.xml \
-    $(LOCAL_PATH)/rootdir/system/etc/spn-conf.xml:system/etc/spn-conf.xml
-
-# EGL
+# EGL Necessary package
 PRODUCT_PACKAGES += \
     libstlport
    
-# CAMERA PACKAGE
-PRODUCT_PACKAGES += \
-    Snap
-    
-# RADIO PACKAGE
+# Radio FM
 PRODUCT_PACKAGES += \
     FMRadio
 
+# Snap Package
+PRODUCT_PACKAGES += \
+    Snap
+
+# Default Propierties
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
-	ro.crypto.state=unencrypted \
-	ro.mount.fs=EXT4 \
-	ro.secure=1 \
-	ro.allow.mock.location=0 \
-	ro.debuggable=1 \
-	ro.zygote=zygote32 \
-	camera.disable_zsl_mode=1 \
-	dalvik.vm.dex2oat-Xms=64m \
-	dalvik.vm.dex2oat-Xmx=512m \
-	dalvik.vm.image-dex2oat-Xms=64m \
-	dalvik.vm.image-dex2oat-Xmx=64m \
-	ro.dalvik.vm.native.bridge=0 \
-	ro.hardware=sprout \
-        ro.telephony.ril_class=SproutRIL
+    ro.crypto.state=unencrypted \
+    ro.mount.fs=EXT4 \
+    ro.allow.mock.location=0 \
+    ro.zygote=zygote32 \
+    camera.disable_zsl_mode=1 \
+    dalvik.vm.dex2oat-Xms=64m \
+    dalvik.vm.dex2oat-Xmx=512m \
+    dalvik.vm.image-dex2oat-Xms=64m \
+    dalvik.vm.image-dex2oat-Xmx=64m \
+    ro.dalvik.vm.native.bridge=0 \
+    ro.debuggable=1 \
+    ro.hardware=sprout \
+    ro.telephony.ril_class=SproutRIL
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     pm.dexopt.first-boot=verify-at-runtime \
@@ -215,10 +194,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=speed \
     dalvik.vm.dex2oat-swap=false	
-	
-# LOGD TOOL
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/tools/logd:system/bin/logd
 
-# Superuser
-WITH_SU := true
+# Granular Volume Steps
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.vc_call_vol_steps=14 \
+    ro.config.media_vol_steps=30
