@@ -1,0 +1,53 @@
+diff --git a/media/libstagefright/FFMPEGSoftCodec.cpp b/media/libstagefright/FFMPEGSoftCodec.cpp
+index 9471c3929..e9ff46e99 100644
+--- a/media/libstagefright/FFMPEGSoftCodec.cpp
++++ b/media/libstagefright/FFMPEGSoftCodec.cpp
+@@ -1450,14 +1450,13 @@ void* FFMPEGSoftCodec::sLibHandle = NULL;
+ void FFMPEGSoftCodec::loadPlugin() {
+     char lib[PROPERTY_VALUE_MAX];
+     if (!sLibHandle && property_get("media.sf.extractor-plugin", lib, NULL)) {
++	dlerror(); // clear any existing error
+         if ((sLibHandle = ::dlopen(lib, RTLD_LAZY)) != NULL) {
+             sSnifferFunc = (DataSource::SnifferFunc)dlsym(sLibHandle, "SniffFFMPEG");
+             sExtractorFunc = (CreateExtractorFunc)dlsym(sLibHandle, "CreateFFMPEGExtractor");
+-        }
+-        if (dlerror()) {
++	} else {
+             sSnifferFunc = NULL;
+             sExtractorFunc = NULL;
+-            dlclose(sLibHandle);
+             ALOGE("Failed to load FFMPEG plugin: %s", dlerror());
+         }
+     }
+diff --git a/media/libstagefright/codecs/avc/enc/SoftAVCEncoder.cpp b/media/libstagefright/codecs/avc/enc/SoftAVCEncoder.cpp
+index cce6d15c3..f0a42cfd8 100644
+--- a/media/libstagefright/codecs/avc/enc/SoftAVCEncoder.cpp
++++ b/media/libstagefright/codecs/avc/enc/SoftAVCEncoder.cpp
+@@ -70,9 +70,6 @@ static LevelConversion ConversionTable[] = {
+     { OMX_VIDEO_AVCLevel12, AVC_LEVEL1_2, 396 },
+     { OMX_VIDEO_AVCLevel13, AVC_LEVEL1_3, 396 },
+     { OMX_VIDEO_AVCLevel2,  AVC_LEVEL2,   396 },
+-#if 0
+-    // encoding speed is very poor if video resolution
+-    // is higher than CIF or if level is higher than 2
+     { OMX_VIDEO_AVCLevel21, AVC_LEVEL2_1, 792 },
+     { OMX_VIDEO_AVCLevel22, AVC_LEVEL2_2, 1620 },
+     { OMX_VIDEO_AVCLevel3,  AVC_LEVEL3,   1620 },
+@@ -83,7 +80,7 @@ static LevelConversion ConversionTable[] = {
+     { OMX_VIDEO_AVCLevel42, AVC_LEVEL4_2, 8704 },
+     { OMX_VIDEO_AVCLevel5,  AVC_LEVEL5,   22080 },
+     { OMX_VIDEO_AVCLevel51, AVC_LEVEL5_1, 36864 },
+-#endif
++
+ };
+ 
+ static status_t ConvertOmxAvcLevelToAvcSpecLevel(
+@@ -162,7 +159,7 @@ SoftAVCEncoder::SoftAVCEncoder(
+             callbacks, appData, component),
+       mIDRFrameRefreshIntervalInSec(1),
+       mAVCEncProfile(AVC_BASELINE),
+-      mAVCEncLevel(AVC_LEVEL2),
++      mAVCEncLevel(AVC_LEVEL5_1),
+       mNumInputFrames(-1),
+       mPrevTimestampUs(-1),
+       mStarted(false),
