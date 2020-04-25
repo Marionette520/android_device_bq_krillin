@@ -17,15 +17,18 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
     bionic.cpp \
-    ril.cpp \
     wvm.cpp \
     ui.cpp \
     xlog.c \
-    mtkaudio.cpp
+    ui.cpp \
+    icu.c \
+    camera.cpp \
+    buffer.cpp
 
-LOCAL_C_INCLUDES += frameworks/av/media/mtp/ system/core/include/ frameworks/rs/server/ frameworks/av/include/ hardware/libhardware/include/
+#LOCAL_C_INCLUDES += frameworks/av/media/mtp/ system/core/include/ frameworks/rs/server/ frameworks/av/include/ hardware/libhardware/include/
 #LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui libcutils libutils
-LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui libutils libui libicuuc libicui18n libc
+#LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui libutils libui libicuuc libicui18n libc
+LOCAL_SHARED_LIBRARIES := libbinder libui libgui libcutils libutils libc liblog libicuuc libicui18n  libstagefright_foundation
 LOCAL_MODULE := libkrillin
 LOCAL_MODULE_TAGS := optional
 
