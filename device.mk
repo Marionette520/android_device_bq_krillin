@@ -191,6 +191,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-legacy \
     libcam.client \
+    libcam.utils.sensorlistener \
     Snap
 
 # Default Propierties
