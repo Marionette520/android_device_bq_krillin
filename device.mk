@@ -133,6 +133,7 @@ PRODUCT_PACKAGES += \
 
 # Led package
 PRODUCT_PACKAGES += \
+    
     lights.mt6582
 
 # Charging
