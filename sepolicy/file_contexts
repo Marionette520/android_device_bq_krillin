@@ -1,9 +1,7 @@
 /system/bin/mtk_agpsd         u:object_r:mtk_agpsd_exec:s0
 /system/bin/6620_launcher     u:object_r:conn_launcher_exec:s0
 /system/bin/ccci_fsd          u:object_r:ccci_fsd_exec:s0
-/system/bin/ccci_rpcd          u:object_r:ccci_rpcd_exec:s0
 /system/bin/ccci_mdinit       u:object_r:ccci_mdinit_exec:s0
-/system/bin/lgpserver         u:object_r:lgpserver_exec:s0
 /system/bin/drvbd             u:object_r:drvbd_exec:s0
 /system/bin/nvram_daemon      u:object_r:nvram_daemon_exec:s0
 /system/xbin/mnld             u:object_r:mnld_exec:s0
@@ -27,7 +25,6 @@
 /dev/ccci_monitor     u:object_r:ccci_monitor_device:s0
 /dev/mtk-adc-cali     u:object_r:mtk_adc_cali_device:s0
 /dev/devmap           u:object_r:devmap_device:s0
-#/dev/nvram  u:object_r:nvram_device:s0
 /dev/block/mmcblk0  u:object_r:nvram_device:s0
 /dev/ccci_.*          u:object_r:ccci_device:s0
 /dev/fm(/.*)?         u:object_r:fm_device:s0
@@ -61,11 +58,6 @@
 /dev/kd_camera_flashlight  u:object_r:camera_device:s0
 /dev/MTK_SMI       u:object_r:camera_device:s0
 /dev/FM50AF        u:object_r:camera_device:s0
-/dev/DW9714AF      u:object_r:camera_device:s0
-/dev/DW9718AF      u:object_r:camera_device:s0
-/dev/GAF001AF      u:object_r:camera_device:s0
-/dev/GAF002AF      u:object_r:camera_device:s0
-/dev/GAF008AF      u:object_r:camera_device:s0
 /dev/stpbt         u:object_r:hci_attach_dev:s0
 /dev/hwmsensor     u:object_r:sensors_device:s0
 /dev/gps           u:object_r:gps_device:s0
