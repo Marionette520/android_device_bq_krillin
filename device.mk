@@ -144,7 +144,20 @@ PRODUCT_PACKAGES += \
 # PARTITIONS
 PRODUCT_PACKAGES += \
     setup_fs \
-    e2fsck
+    e2fsck \
+    fsck.f2fs \
+    mkfs.f2fs \
+    make_ext4fs
+
+PRODUCT_PACKAGES += \
+    mount.exfat \
+    fsck.exfat \
+    mkfs.exfat
+
+PRODUCT_PACKAGES += \
+    fsck.ntfs \
+    mkfs.ntfs \
+    mount.ntfs
     
 # GPS PACKAGE
 PRODUCT_PACKAGES += \
