@@ -1,0 +1,38 @@
+From: daniel_hk (https://github.com/daniel_hk)
+Date Tue, 17 Jan 2017 15:40:08 +0000
+Subject: Skip the empty SSID in scan message
+
+Add the length check to skip empty entries.
+
+diff --git a/src/drivers/driver_nl80211_scan.c b/src/drivers/driver_nl80211_scan.c
+index c115b6b..8347a7f 100644
+--- a/src/drivers/driver_nl80211_scan.c
++++ b/src/drivers/driver_nl80211_scan.c
+@@ -130,23 +130,24 @@ nl80211_scan_common(struct i802_bss *bss, u8 cmd,
+ 	if (params->num_ssids) {
+ 		struct nlattr *ssids;
+
+ 		ssids = nla_nest_start(msg, NL80211_ATTR_SCAN_SSIDS);
+ 		if (ssids == NULL)
+ 			goto fail;
+ 		for (i = 0; i < params->num_ssids; i++) {
+ 			wpa_hexdump_ascii(MSG_MSGDUMP, "nl80211: Scan SSID",
+ 					  params->ssids[i].ssid,
+ 					  params->ssids[i].ssid_len);
+-			if (nla_put(msg, i + 1, params->ssids[i].ssid_len,
+-				    params->ssids[i].ssid))
+-				goto fail;
++			if (params->ssids[i].ssid_len)
++				if (nla_put(msg, i + 1, params->ssids[i].ssid_len,
++					    params->ssids[i].ssid))
++					goto fail;
+ 		}
+ 		nla_nest_end(msg, ssids);
+ 	} else {
+ 		wpa_printf(MSG_DEBUG, "nl80211: Passive scan requested");
+ 	}
+
+ 	if (params->extra_ies) {
+ 		wpa_hexdump(MSG_MSGDUMP, "nl80211: Scan extra IEs",
+ 			    params->extra_ies, params->extra_ies_len);
+ 		if (nla_put(msg, NL80211_ATTR_IE, params->extra_ies_len,

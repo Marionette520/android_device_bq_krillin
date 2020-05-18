@@ -13,3 +13,6 @@ git apply -v ../../device/bq/krillin/patches/capture.patch
 git apply -v ../../device/bq/krillin/patches/encoders_n.patch
 git apply -v ../../device/bq/krillin/patches/mtk_color_support.patch
 cd ../..
+cd external/wpa_supplicant_8
+git apply -v ../../device/bq/krillin/patches/wpa_supplicant_8.patch
+cd ../..
