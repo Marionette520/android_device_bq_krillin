@@ -71,6 +71,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 # light path
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
+# sensors
+TARGET_NO_SENSOR_PERMISSION_CHECK := true
+
 # OTA
 BLOCK_BASED_OTA := false
 TARGET_OTA_ASSERT_DEVICE := krillin,Aquaris_E45,alps,giraffe
