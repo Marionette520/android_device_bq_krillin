@@ -130,6 +130,10 @@ PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
 
+# Led package
+PRODUCT_PACKAGES += \
+    lights.mt6582
+
 # CHARGING
 PRODUCT_PACKAGES += \
     charger \
