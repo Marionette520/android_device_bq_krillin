@@ -20,8 +20,6 @@ LOCAL_PATH := device/bq/krillin
 
 # Inherit framework first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
-
-# Languages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit from krillin device
@@ -31,7 +29,6 @@ $(call inherit-product, device/bq/krillin/device.mk)
 TARGET_SCREEN_HEIGHT := 960
 TARGET_SCREEN_WIDTH := 540
 
-<<<<<<< HEAD
 # set locales & aapt config.
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
@@ -39,10 +36,6 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 # Inherit some common LineageOS stuff.
 CM_BUILD :=krillin
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
-=======
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_DEVICE="krillin"
->>>>>>> 4e5f792... Removal of either not needed, used or aplicable stuff.
 
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := lineage_krillin
@@ -55,7 +48,6 @@ PRODUCT_MODEL := Aquaris E4.5
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
 
-<<<<<<< HEAD
 # Set product device & name
 PRODUCT_BUILD_PROP_OVERRIDES += \
    PRODUCT_DEVICE="krillin"
@@ -63,15 +55,10 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=7.1.2/MRA58M/2419427:user/release-keys \
     PRIVATE_BUILD_DESC="krillin-user 7.1.2 MRA58M 2419427 release-keys"
-=======
-# Inherit some common CM stuff.
-CM_BUILDTYPE := EXPERIMENTAL
->>>>>>> 4e5f792... Removal of either not needed, used or aplicable stuff.
 
 # Additional Features
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
-<<<<<<< HEAD
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
@@ -80,5 +67,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
   persist.service.adb.enable=1 \
   persist.service.debuggable=1 \
   persist.sys.usb.config=mtp,adb
-=======
->>>>>>> 4e5f792... Removal of either not needed, used or aplicable stuff.
