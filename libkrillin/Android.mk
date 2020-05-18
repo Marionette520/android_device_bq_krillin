@@ -16,16 +16,26 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
+    bionic.cpp \
     ril.cpp \
-    ssl.c \
     wvm.cpp \
     ui.cpp \
     xlog.c \
     mtkaudio.cpp
 
 LOCAL_C_INCLUDES += frameworks/av/media/mtp/ system/core/include/ frameworks/rs/server/ frameworks/av/include/ hardware/libhardware/include/
-LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui libcutils libutils
+#LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui libcutils libutils
+LOCAL_SHARED_LIBRARIES := libbinder libcrypto liblog libstagefright_foundation libui libgui libutils libui libicuuc libicui18n libc
 LOCAL_MODULE := libkrillin
 LOCAL_MODULE_TAGS := optional
+
+LOCAL_CLANG := true
+LOCAL_CPPFLAGS := -std=c++1y 
+# LOCAL_SANITIZE := integer
+LOCAL_CPPFLAGS += -Wno-exit-time-destructors
+LOCAL_CPPFLAGS += -Wno-global-constructors
+LOCAL_CPPFLAGS += -Wno-c++98-compat-pedantic
+LOCAL_CPPFLAGS += -Wno-four-char-constants
+LOCAL_CPPFLAGS += -Wno-padded
 
 include $(BUILD_SHARED_LIBRARY)
