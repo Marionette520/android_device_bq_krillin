@@ -15,6 +15,9 @@
 # limitations under the License.
 #
 
+# Set LOCAL_PATH
+LOCAL_PATH := device/bq/krillin
+
 # Inherit framework first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
