@@ -19,6 +19,10 @@ on init
     chown root system /proc/lk_env
     chmod 0660 /proc/lk_env
 
+    # Double Tap permission
+    chown system system /sys/android_touch/doubletap2wake
+    chmod 0666 /sys/android_touch/doubletap2wake
+
 # mount different fs start
 
 on fs
@@ -162,7 +166,7 @@ on post-fs-data
 
     # Start sensor
     chmod 0660 /dev/hwmsensor
-    chmod 0660 /dev/msensor
+    chmod 0777 /dev/msensor
     chmod 0660 /dev/gsensor
     chmod 0660 /dev/als_ps
     chmod 0660 /dev/gyroscope
@@ -193,31 +197,26 @@ on post-fs-data
     chown system system /sys/class/misc/m_acc_misc/accflush
 
     # Magnetometer (compass) sensor
-    chmod 0660 /sys/class/misc/m_mag_misc/magactive
-    chmod 0660 /sys/class/misc/m_mag_misc/magdelay
-    chmod 0660 /sys/class/misc/m_mag_misc/magbatch
-    chmod 0660 /sys/class/misc/m_mag_misc/magflush
-    chmod 0660 /sys/class/misc/m_mag_misc/magoactive
-    chmod 0660 /sys/class/misc/m_mag_misc/magodelay
-    chmod 0660 /sys/class/misc/m_mag_misc/magobatch
-    chmod 0660 /sys/class/misc/m_mag_misc/magoflush
+    chmod 0777 /sys/class/misc/m_mag_misc/magactive
+    chmod 0777 /sys/class/misc/m_mag_misc/magdelay
+    chmod 0777 /sys/class/misc/m_mag_misc/magbatch
+    chmod 0777 /sys/class/misc/m_mag_misc/magflush
+    chmod 0777 /sys/class/misc/m_mag_misc/magoactive
+    chmod 0777 /sys/class/misc/m_mag_misc/magodelay
+    chmod 0777 /sys/class/misc/m_mag_misc/magobatch
+    chmod 0777 /sys/class/misc/m_mag_misc/magoflush
     chown system system /sys/class/misc/m_mag_misc/magactive
     chown system system /sys/class/misc/m_mag_misc/magdelay
     chown system system /sys/class/misc/m_mag_misc/magbatch
     chown system system /sys/class/misc/m_mag_misc/magflush
     chown system system /sys/class/misc/m_mag_misc/magoactive
     chown system system /sys/class/misc/m_mag_misc/magodelay
-    
-    # ADDED BY BQ (IT SEEMS TO BE SOMETHING RELATED WITH BATERY)
-    chown system system /sys/devices/platform/battery/Ckt_AT_Test_Charging_State
-
-    # More magnetometer sensors..
     chown system system /sys/class/misc/m_mag_misc/magobatch
     chown system system /sys/class/misc/m_mag_misc/magoflush
-    chmod 0660 /sys/class/misc/m_batch_misc/batchactive
-    chmod 0660 /sys/class/misc/m_batch_misc/batchdelay
-    chmod 0660 /sys/class/misc/m_batch_misc/batchbatch
-    chmod 0660 /sys/class/misc/m_batch_misc/batchflush
+    chmod 0777 /sys/class/misc/m_batch_misc/batchactive
+    chmod 0777 /sys/class/misc/m_batch_misc/batchdelay
+    chmod 0777 /sys/class/misc/m_batch_misc/batchbatch
+    chmod 0777 /sys/class/misc/m_batch_misc/batchflush
     chown system system /sys/class/misc/m_batch_misc/batchactive
     chown system system /sys/class/misc/m_batch_misc/batchdelay
     chown system system /sys/class/misc/m_batch_misc/batchbatch
@@ -264,8 +263,17 @@ on post-fs-data
     chown system system /sys/class/misc/m_baro_misc/barodelay
     chown system system /sys/class/misc/m_baro_misc/barobatch
     chown system system /sys/class/misc/m_baro_misc/baroflush
+
+    # msensor
+    chmod 0777 /sys/bus/platform/drivers/msensor/daemon
+    chown system system /sys/bus/platform/drivers/msensor/daemon
+    chown system /sys/devices/platform/msensor/driver/cpsopmode
+    chown system /sys/devices/platform/msensor/driver/cpsreptxy
+    chown system /sys/devices/platform/msensor/driver/cpsreptz
+
     #Accdet
     chown root radio /sys/devices/platform/Accdet_Driver/driver/accdet_call_state
+
     #VideoCodec
     chmod 0660 /dev/Vcodec
     chown media media /dev/Vcodec
@@ -290,10 +298,6 @@ on post-fs-data
     chown system /sys/class/input/input3/wake
     chown system /sys/class/input/input4/offsets
     chown system /sys/class/input/input4/dynamic_matrix
-    chown system /sys/devices/platform/msensor/driver/cpsopmode
-    chown system /sys/devices/platform/msensor/driver/cpsreptxy
-    chown system /sys/devices/platform/msensor/driver/cpsreptz
-
 
     # SPM SODI Enable
     chown media /proc/mcdi/sodi_en
@@ -372,11 +376,6 @@ on post-fs-data
     chmod 0660 /dev/kd_camera_flashlight
     chmod 0660 /dev/kd_camera_hw_bus2
     chmod 0660 /dev/FM50AF
-    chmod 0660 /dev/OV8825AF
-    chmod 0660 /dev/OV8826AF
-    chmod 0660 /dev/LITEON3H7AF    
-    chmod 0660 /dev/CAM_CAL_DRV
-    chmod 0660 /dev/EEPROM_M24C08F
 
     chown system camera /dev/camera-sysram
     chown system camera /dev/camera-isp
@@ -385,12 +384,6 @@ on post-fs-data
     chown system camera /dev/kd_camera_flashlight
     chown system camera /dev/kd_camera_hw_bus2
     chown system camera /dev/FM50AF
-    chown system camera /dev/OV8825AF
-    chown system camera /dev/OV8826AF
-    chown system camera /dev/LITEON3H7AF    
-    chown system camera /dev/CAM_CAL_DRV
-    chown system camera /dev/EEPROM_M24C08F
-
 
     #MATV
     chmod 0660 /dev/MATV
@@ -413,7 +406,7 @@ on post-fs-data
 
     # SMI
     chmod 0660 /dev/MTK_SMI
-    chown media media /dev/MTK_SMI
+    chown system media /dev/MTK_SMI
 
     #mtk_sched
     chmod 0660 /dev/mtk_sched
@@ -481,7 +474,7 @@ on boot
     chown root system /sys/module/page_alloc/parameters/log_order_threshold
     chmod 0664 /sys/module/page_alloc/parameters/log_order_threshold
 
-     # Tweak background writeout
+    # Tweak background writeout
     write /proc/sys/vm/dirty_writeback_centisecs 300
 
     chmod 0660 /sys/power/autosleep
@@ -815,16 +808,17 @@ service ami304d /system/bin/ami304d
     class main
 
 service memsicd /system/bin/memsicd
-     disabled
+    disabled
     user system
     group system
     class main
 
 service memsicd3416x /system/bin/memsicd3416x
-     disabled
-	 user system
+    disabled
+    user system
     group system
     class main
+
 service akmd8975 /system/bin/akmd8975
     disabled
     user system
@@ -877,9 +871,10 @@ service mc6420d /system/bin/mc6420d
     user system
     group system
     class main
+
 service qmc5983d /system/bin/qmc5983d
-     disabled
-	 user system
+    disabled
+    user system
     group system
     class main
 
@@ -925,10 +920,12 @@ service thermal_manager /system/bin/thermal_manager
     user root
     oneshot
 
-service battery_charger /charger
+# Health Charger
+service charger /sbin/healthd -c
     class charger
-
+    critical
     seclabel u:r:healthd:s0
+
 #
 # Connectivity related services (Begin)
 #
