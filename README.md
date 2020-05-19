@@ -23,16 +23,13 @@ Aquaris E4.5 - LineageOS 14.1
      * export WITH_TWRP=true
      * mka recoveryimage
 
-### Currently broken freatures:
-
- * Mobile data
- * Radio FM
-
 ### Thanks to (In alphabetichal order):
 
  * Assusdan
  * Deckersu
  * kra1o5
+ * MagnusALM
+ * Pablito2020
  * sultanxda
  * Varun Chitre
  * Vo-1
