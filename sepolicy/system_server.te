@@ -6,4 +6,23 @@ allow system_server init_tmpfs:file read;
 allow system_server mnld_data_file:dir { write remove_name add_name search};
 allow system_server mnld_data_file:sock_file { write create unlink setattr };
 allow system_server zygote:binder call;
-allow system_server mnld:unix_dgram_socket sendto;
+allow system_server debugfs:dir {read open};
+allow system_server mnld:unix_dgram_socket { sendto };
+allow system_server wcn_combo_chip_prop:file { r_file_perms };
+
+# Persist
+allow system_server protect_s_data_file:dir r_dir_perms;
+
+# Sensors
+allow system_server hwmsensor_device:chr_file r_file_perms;
+allow system_server sensors_device:chr_file { read open };
+allow system_server sensord_data_file:file r_file_perms;
+allow system_server sysfs_accel_calibration:file { r_file_perms };
+allow system_server sysfs_accel_accdata:file { r_file_perms };
+allow system_server sysfs_accel_sensordata:file { r_file_perms };
+
+# Wifi
+allow system_server wmtWifi_device:chr_file w_file_perms;
+
+# Audio
+allow system_server M4U_device:chr_file rw_file_perms;

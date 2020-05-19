@@ -8,3 +8,10 @@ allow msensord sysfs_msensord_daemon_file:file { open read write };
 allow msensord property_socket:sock_file write;
 allow msensord init:unix_stream_socket connectto;
 allow msensord ctl_default_prop:property_service set;
+allow msensord ctl_memsicd3416x_prop:property_service set;
+allow msensord sysfs_gyro_orientation:file { rw_file_perms };
+allow msensord msensor_device:chr_file { rw_file_perms };
+allow msensord gsensor_device:chr_file { rw_file_perms };
+allow msensord gyroscope_device:chr_file { rw_file_perms };
+
+unix_socket_connect(msensord, property, init)

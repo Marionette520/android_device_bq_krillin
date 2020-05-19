@@ -2,3 +2,16 @@ type memsicd3416x, domain;
 type memsicd3416x_exec, exec_type, file_type;
 
 init_daemon_domain(memsicd3416x)
+allow memsicd3416x memsicd3416x_exec:file { read open getattr execute execute_no_trans};
+allow memsicd3416x sysfs_sensor_file:dir { rw_dir_perms };
+allow memsicd3416x sysfs_sensor_file:file { rw_file_perms };
+allow memsicd3416x system_data_file:dir { rw_dir_perms };
+allow memsicd3416x system_data_file:dir { setattr rw_dir_perms };
+allow memsicd3416x sensord_data_file:file { create setattr rw_file_perms };
+allow memsicd3416x sysfs:file { read open };
+allow memsicd3416x msensor_device:chr_file { rw_file_perms };
+allow memsicd3416x gsensor_device:chr_file { rw_file_perms };
+allow memsicd3416x gyroscope_device:chr_file { rw_file_perms };
+allow memsicd3416x input_device:dir { rw_file_perms };
+allow memsicd3416x input_device:file { rw_file_perms };
+allow memsicd3416x sysfs_gyro_orientation:file { rw_file_perms };

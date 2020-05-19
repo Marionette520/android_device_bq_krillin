@@ -160,6 +160,10 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 # MTK CAMERA NEEDED
 USE_CAMERA_STUB := true
 
-# SEPOLICY (ENFORCING NOT WORKING FOR NOW)
+# Seccomp
+BOARD_SECCOMP_POLICY += \
+    device/bq/krillin/seccomp
+
+# Sepolicy
 BOARD_SEPOLICY_DIRS += \
     device/bq/krillin/sepolicy

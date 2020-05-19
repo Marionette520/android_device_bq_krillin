@@ -7,3 +7,4 @@ persist.mtk.wcn.combo.chipid          u:object_r:wcn_combo_chip_prop:s0
 persist.ril.cfu.querytype             u:object_r:ril_prop:s0
 gps.clock.type                        u:object_r:gps_prop:s0
 gps.gps.version                       u:object_r:gps_prop:s0
+ctl.memsicd3416x                      u:object_r:ctl_memsicd3416x_prop:s0
