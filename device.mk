@@ -97,14 +97,25 @@ DEVICE_PACKAGE_OVERLAYS := device/bq/krillin/overlay
 
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
     libaudio-resampler \
     tinymix
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+
 # Mediatek Wlan Packages
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
@@ -117,10 +128,12 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
+    android.hardware.usb@1.0-service
 
 # Led package
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
     lights.mt6582
 
 # Charging
@@ -145,6 +158,7 @@ PRODUCT_PACKAGES += \
     
 # GPS package
 PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
     gps.mt6582
 
 # Shims for krillin
