@@ -27,6 +27,7 @@ ro.mediatek.version.sdk=1
 
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
+persist.media.treble_omx=false
 ro.camera.sound.forced=0
 
 rild.libargs=-d /dev/ttyC0
