@@ -51,6 +51,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Set product device & name
 PRODUCT_BUILD_PROP_OVERRIDES += \
    PRODUCT_DEVICE="krillin" \
-    PRIVATE_BUILD_DESC="krillin-user 7.1.2 MRA58M 2419427 release-keys"
+   PRIVATE_BUILD_DESC="krillin-user 7.1.2 MRA58M 2419427 release-keys"
 
 BUILD_FINGERPRINT=7.1.2/MRA58M/2419427:user/release-keys
