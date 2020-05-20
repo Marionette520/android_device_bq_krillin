@@ -55,15 +55,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=7.1.2/MRA58M/2419427:user/release-keys \
     PRIVATE_BUILD_DESC="krillin-user 7.1.2 MRA58M 2419427 release-keys"
-
-# Additional Features
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
-ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp
-	
-PRODUCT_PROPERTY_OVERRIDES += \
-  persist.service.adb.enable=1 \
-  persist.service.debuggable=1 \
-  persist.sys.usb.config=mtp,adb
