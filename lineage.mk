@@ -34,8 +34,8 @@ PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 # Inherit some common LineageOS stuff.
-CM_BUILD :=krillin
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+LINEAGE_BUILD :=krillin
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := lineage_krillin
@@ -50,8 +50,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set product device & name
 PRODUCT_BUILD_PROP_OVERRIDES += \
-   PRODUCT_DEVICE="krillin"
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=7.1.2/MRA58M/2419427:user/release-keys \
+   PRODUCT_DEVICE="krillin" \
     PRIVATE_BUILD_DESC="krillin-user 7.1.2 MRA58M 2419427 release-keys"
+
+BUILD_FINGERPRINT=7.1.2/MRA58M/2419427:user/release-keys
