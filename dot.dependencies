@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "android_kernel_bq_krillin",
+    "target_path": "kernel/bq/krillin"
+  },
+  {
+    "repository": "android_vendor_bq_krillin",
+    "target_path": "vendor/bq/krillin" 
+  }
+]

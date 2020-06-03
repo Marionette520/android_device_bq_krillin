@@ -33,13 +33,12 @@ TARGET_SCREEN_WIDTH := 540
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
-# Inherit some common LineageOS stuff.
-CM_BUILD :=krillin
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common DotOS stuff.
+$(call inherit-product, vendor/dot/config/common_full_phone.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := lineage_krillin
-PRODUCT_DEVICE :=krillin
+PRODUCT_NAME := dot_krillin
+PRODUCT_DEVICE := krillin
 PRODUCT_BRAND := bq
 PRODUCT_MANUFACTURER := bq
 PRODUCT_MODEL := Aquaris E4.5
@@ -67,3 +66,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
   persist.service.adb.enable=1 \
   persist.service.debuggable=1 \
   persist.sys.usb.config=mtp,adb
+
+# MAGISK ROOT
+WITH_MAGISK := true
+ROOT_METHOD := magisk
