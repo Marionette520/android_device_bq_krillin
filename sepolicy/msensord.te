@@ -1,3 +1,23 @@
+#type msensord, domain;
+#type msensord_exec, exec_type, file_type;
+
+#init_daemon_domain(msensord)
+#allow msensord msensord_exec:file { read open getattr execute execute_no_trans};
+#allow msensord sysfs_sensor_file:dir search;
+#allow msensord sysfs_msensord_daemon_file:file { open read write };
+#allow msensord property_socket:sock_file write;
+#allow msensord init:unix_stream_socket connectto;
+#allow msensord ctl_default_prop:property_service set;
+#allow msensord ctl_memsicd3416x_prop:property_service set;
+#allow msensord sysfs_gyro_orientation:file { rw_file_perms };
+#allow msensord msensor_device:chr_file { rw_file_perms };
+#allow msensord gsensor_device:chr_file { rw_file_perms };
+#allow msensord gyroscope_device:chr_file { rw_file_perms };
+#allow msensord property:property_service set;
+
+#unix_socket_connect(msensord, property, init)
+#set_prop(msensord, property, init)
+
 type msensord, domain;
 type msensord_exec, exec_type, file_type;
 
@@ -8,11 +28,3 @@ allow msensord sysfs_msensord_daemon_file:file { open read write };
 allow msensord property_socket:sock_file write;
 allow msensord init:unix_stream_socket connectto;
 allow msensord ctl_default_prop:property_service set;
-allow msensord ctl_memsicd3416x_prop:property_service set;
-allow msensord sysfs_gyro_orientation:file { rw_file_perms };
-allow msensord msensor_device:chr_file { rw_file_perms };
-allow msensord gsensor_device:chr_file { rw_file_perms };
-allow msensord gyroscope_device:chr_file { rw_file_perms };
-
-#unix_socket_connect(msensord, property, init)
-set_prop(msensord, property, init)

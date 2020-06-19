@@ -17,7 +17,6 @@
 /system/bin/netdiag u:object_r:netdiag_exec:s0
 /system/bin/meta_tst u:object_r:meta_tst_exec:s0
 /system/bin/memsicd3416x u:object_r:memsicd3416x_exec:s0
-/system/bin/md_ctrl u:object_r:md_ctrl_exec:s0
 /system/bin/radiooptions u:object_r:radiooptions_exec:s0
 /system/bin/wmt_loader       u:object_r:wmt_loader_exec:s0
 
