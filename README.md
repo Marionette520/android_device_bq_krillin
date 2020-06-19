@@ -1,15 +1,17 @@
-Aquaris E4.5 - LineageOS 14.1
+Aquaris E4.5 - LineageOS 15.1
 ==============
 
 ### Full Compilation guide:
 
-     * repo init -u git://github.com/LineageOS/android.git -b cm-14.1
+     * repo init -u git://github.com/LineageOS/android.git -b lineage-15.1
 
      * repo sync --force-sync 
 
      * . build/envsetup.sh
 
      * lunch lineage_krillin-userdebug
+     
+     * brunch lineage_krillin-userdebug
 
 ### Recovery Compilation (TWRP Variant):
 
@@ -30,6 +32,7 @@ Aquaris E4.5 - LineageOS 14.1
  * kra1o5
  * MagnusALM
  * Pablito2020
+ * R0rt1z2
  * sultanxda
  * Varun Chitre
  * Vo-1
