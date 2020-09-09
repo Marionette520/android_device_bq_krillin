@@ -35,3 +35,21 @@ Aquaris E4.5 - LineageOS 14.1
  * Vo-1
  * Xcore
  * Zormax
+
+About device:
+![alt text](https://photos.app.goo.gl/Y2qeqLUpryfAuKwSA)
+=========================================================
+Basic   | Spec Sheet
+-------:|:-------------------------
+CPU     | 1,3Ghz Quad-Core ARM Cortex-A7 
+CHIPSET | Mediatek MT6582 1,3 GHz
+GPU     | MediaTek ARM Mali-400 MP2 500Mhz 
+Kernel  | 3.8.108
+Memory  | 1 GB
+Shipped Android Version | Android 4.4
+Storage | 8GB
+MicroSD | Yes
+Battery | LiPo 2150 mAh (non-removable)
+Display | 540 x 960 pixels, 4.5" HD
+Rear Camera  | 8.0 MP
+Front Camera | 5.0 MP
