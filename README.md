@@ -37,7 +37,7 @@ Aquaris E4.5 - LineageOS 14.1
  * Zormax
 
 About device:
-![alt text](https://www.dropbox.com/s/2b3hdi1u15gqa8f/Aquaris_e45_Krillin.jpg?dl=0)
+![krillin](https://github.com/jmpfbmx/device_pics/blob/master/Krillin.jpg)
 =========================================================
 Basic   | Spec Sheet
 -------:|:-------------------------
